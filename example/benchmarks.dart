@@ -92,34 +92,46 @@ void main() {
   // Insert at head
   print(benchmark('LinkedList.addFirst', n, () {
     final list = LinkedList<int>();
-    for (var i = 0; i < 100; i++) list.addFirst(i);
+    for (var i = 0; i < 100; i++) {
+      list.addFirst(i);
+    }
   }));
 
   print(benchmark('DoublyLinkedList.addFirst', n, () {
     final list = DoublyLinkedList<int>();
-    for (var i = 0; i < 100; i++) list.addFirst(i);
+    for (var i = 0; i < 100; i++) {
+      list.addFirst(i);
+    }
   }));
 
   print(benchmark('DynamicArray.insert(0)', n, () {
     final arr = DynamicArray<int>();
-    for (var i = 0; i < 100; i++) arr.insert(0, i);
+    for (var i = 0; i < 100; i++) {
+      arr.insert(0, i);
+    }
   }));
 
   // Insert at tail
   print('');
   print(benchmark('LinkedList.add (tail)', n, () {
     final list = LinkedList<int>();
-    for (var i = 0; i < 100; i++) list.add(i);
+    for (var i = 0; i < 100; i++) {
+      list.add(i);
+    }
   }));
 
   print(benchmark('DoublyLinkedList.add (tail)', n, () {
     final list = DoublyLinkedList<int>();
-    for (var i = 0; i < 100; i++) list.add(i);
+    for (var i = 0; i < 100; i++) {
+      list.add(i);
+    }
   }));
 
   print(benchmark('DynamicArray.add (tail)', n, () {
     final arr = DynamicArray<int>();
-    for (var i = 0; i < 100; i++) arr.add(i);
+    for (var i = 0; i < 100; i++) {
+      arr.add(i);
+    }
   }));
 
   // ============================================================
@@ -128,7 +140,9 @@ void main() {
   printSubHeader('Circular Lists - Rotation Performance');
 
   final circularList = CircularLinkedList<int>();
-  for (var i = 0; i < 1000; i++) circularList.add(i);
+  for (var i = 0; i < 1000; i++) {
+    circularList.add(i);
+  }
 
   print(benchmark('CircularLinkedList.rotate(1)', 100000, () {
     circularList.rotate(1);
@@ -139,7 +153,9 @@ void main() {
   }));
 
   final circularDoubly = CircularDoublyLinkedList<int>();
-  for (var i = 0; i < 1000; i++) circularDoubly.add(i);
+  for (var i = 0; i < 1000; i++) {
+    circularDoubly.add(i);
+  }
 
   print(benchmark('CircularDoublyLinkedList.rotateForward(1)', 100000, () {
     circularDoubly.rotateForward(1);
@@ -169,15 +185,21 @@ void main() {
   }
 
   print(benchmark('SkipList.contains (10K elements)', 10000, () {
-    for (final v in searchValues) skipList.contains(v);
+    for (final v in searchValues) {
+      skipList.contains(v);
+    }
   }));
 
   print(benchmark('BST.contains (10K elements)', 10000, () {
-    for (final v in searchValues) bst.contains(v);
+    for (final v in searchValues) {
+      bst.contains(v);
+    }
   }));
 
   print(benchmark('AVL.contains (10K elements)', 10000, () {
-    for (final v in searchValues) avl.contains(v);
+    for (final v in searchValues) {
+      avl.contains(v);
+    }
   }));
 
   // ============================================================
@@ -187,20 +209,32 @@ void main() {
 
   print(benchmark('Stack push/pop', n, () {
     final stack = Stack<int>();
-    for (var i = 0; i < 100; i++) stack.push(i);
-    while (stack.isNotEmpty) stack.pop();
+    for (var i = 0; i < 100; i++) {
+      stack.push(i);
+    }
+    while (stack.isNotEmpty) {
+      stack.pop();
+    }
   }));
 
   print(benchmark('Queue enqueue/dequeue', n, () {
     final queue = Queue<int>();
-    for (var i = 0; i < 100; i++) queue.enqueue(i);
-    while (queue.isNotEmpty) queue.dequeue();
+    for (var i = 0; i < 100; i++) {
+      queue.enqueue(i);
+    }
+    while (queue.isNotEmpty) {
+      queue.dequeue();
+    }
   }));
 
   print(benchmark('Deque addLast/removeFirst', n, () {
     final deque = Deque<int>();
-    for (var i = 0; i < 100; i++) deque.addLast(i);
-    while (deque.isNotEmpty) deque.removeFirst();
+    for (var i = 0; i < 100; i++) {
+      deque.addLast(i);
+    }
+    while (deque.isNotEmpty) {
+      deque.removeFirst();
+    }
   }));
 
   // ============================================================
@@ -211,7 +245,9 @@ void main() {
   printSubHeader('HashTable Operations');
 
   final hashTable = HashTable<int, int>();
-  for (var i = 0; i < 10000; i++) hashTable[i] = i * 2;
+  for (var i = 0; i < 10000; i++) {
+    hashTable[i] = i * 2;
+  }
 
   print(benchmark('HashTable.put', 100000, () {
     hashTable[random.nextInt(100000)] = 42;
@@ -250,17 +286,25 @@ void main() {
 
   print(benchmark('UnionFind<int> union', 1000, () {
     final uf = UnionFind<int>();
-    for (var i = 0; i < 1000; i++) uf.makeSet(i);
-    for (var i = 0; i < 999; i++) uf.union(i, i + 1);
+    for (var i = 0; i < 1000; i++) {
+      uf.makeSet(i);
+    }
+    for (var i = 0; i < 999; i++) {
+      uf.union(i, i + 1);
+    }
   }));
 
   print(benchmark('UnionFindInt union', 1000, () {
     final uf = UnionFindInt(1000);
-    for (var i = 0; i < 999; i++) uf.union(i, i + 1);
+    for (var i = 0; i < 999; i++) {
+      uf.union(i, i + 1);
+    }
   }));
 
   final ufInt = UnionFindInt(10000);
-  for (var i = 0; i < 9999; i += 2) ufInt.union(i, i + 1);
+  for (var i = 0; i < 9999; i += 2) {
+    ufInt.union(i, i + 1);
+  }
 
   print(benchmark('UnionFindInt.find (with compression)', 100000, () {
     ufInt.find(random.nextInt(10000));
@@ -275,25 +319,35 @@ void main() {
 
   print(benchmark('BST sequential insert (1-1000)', 100, () {
     final tree = BinarySearchTree<int>();
-    for (var i = 1; i <= 1000; i++) tree.insert(i);
+    for (var i = 1; i <= 1000; i++) {
+      tree.insert(i);
+    }
   }));
 
   print(benchmark('AVL sequential insert (1-1000)', 100, () {
     final tree = AVLTree<int>();
-    for (var i = 1; i <= 1000; i++) tree.insert(i);
+    for (var i = 1; i <= 1000; i++) {
+      tree.insert(i);
+    }
   }));
 
   printSubHeader('Heap Operations');
 
   print(benchmark('Heap.insert', 10000, () {
     final heap = Heap<int>.minHeap();
-    for (var i = 0; i < 100; i++) heap.insert(random.nextInt(1000));
+    for (var i = 0; i < 100; i++) {
+      heap.insert(random.nextInt(1000));
+    }
   }));
 
   print(benchmark('Heap.extract', 10000, () {
     final heap = Heap<int>.minHeap();
-    for (var i = 0; i < 100; i++) heap.insert(random.nextInt(1000));
-    while (heap.isNotEmpty) heap.extract();
+    for (var i = 0; i < 100; i++) {
+      heap.insert(random.nextInt(1000));
+    }
+    while (heap.isNotEmpty) {
+      heap.extract();
+    }
   }));
 
   print(benchmark('Heap.from (heapify)', 10000, () {
@@ -305,20 +359,30 @@ void main() {
 
   print(benchmark('BinaryHeap insert+extract', 1000, () {
     final heap = Heap<int>.minHeap();
-    for (var i = 0; i < 100; i++) heap.insert(random.nextInt(1000));
-    for (var i = 0; i < 50; i++) heap.extract();
+    for (var i = 0; i < 100; i++) {
+      heap.insert(random.nextInt(1000));
+    }
+    for (var i = 0; i < 50; i++) {
+      heap.extract();
+    }
   }));
 
   print(benchmark('FibonacciHeap insert+extract', 1000, () {
     final heap = FibonacciHeap<int>.minHeap();
-    for (var i = 0; i < 100; i++) heap.insert(random.nextInt(1000));
-    for (var i = 0; i < 50; i++) heap.extractMin();
+    for (var i = 0; i < 100; i++) {
+      heap.insert(random.nextInt(1000));
+    }
+    for (var i = 0; i < 50; i++) {
+      heap.extractMin();
+    }
   }));
 
   printSubHeader('MinMaxHeap - Double-Ended Access');
 
   final mmHeap = MinMaxHeap<int>();
-  for (var i = 0; i < 10000; i++) mmHeap.insert(random.nextInt(100000));
+  for (var i = 0; i < 10000; i++) {
+    mmHeap.insert(random.nextInt(100000));
+  }
 
   print(benchmark('MinMaxHeap.peekMin', 100000, () {
     mmHeap.peekMin();
@@ -349,11 +413,15 @@ void main() {
   ];
 
   final trie = Trie();
-  for (final word in words) trie.insert(word);
+  for (final word in words) {
+    trie.insert(word);
+  }
 
   print(benchmark('Trie.insert', 10000, () {
     final t = Trie();
-    for (final word in words) t.insert(word);
+    for (final word in words) {
+      t.insert(word);
+    }
   }));
 
   print(benchmark('Trie.contains', 100000, () {
@@ -375,16 +443,22 @@ void main() {
 
   print(benchmark('BTree insert (t=3)', 1000, () {
     final tree = BTree<int, int>(3);
-    for (var i = 0; i < 100; i++) tree.insert(random.nextInt(10000), i);
+    for (var i = 0; i < 100; i++) {
+      tree.insert(random.nextInt(10000), i);
+    }
   }));
 
   print(benchmark('BPlusTree insert (t=3)', 1000, () {
     final tree = BPlusTree<int, int>(3);
-    for (var i = 0; i < 100; i++) tree.insert(random.nextInt(10000), i);
+    for (var i = 0; i < 100; i++) {
+      tree.insert(random.nextInt(10000), i);
+    }
   }));
 
   final bPlusTree = BPlusTree<int, String>(3);
-  for (var i = 0; i < 1000; i++) bPlusTree.insert(i, 'value$i');
+  for (var i = 0; i < 1000; i++) {
+    bPlusTree.insert(i, 'value$i');
+  }
 
   print(benchmark('BPlusTree.range query', 10000, () {
     bPlusTree.range(100, 200).toList();
@@ -427,7 +501,9 @@ void main() {
 
   print(benchmark('Graph (adj list) build', 1000, () {
     final g = Graph<int>();
-    for (var i = 0; i < 100; i++) g.addVertex(i);
+    for (var i = 0; i < 100; i++) {
+      g.addVertex(i);
+    }
     for (var i = 0; i < 200; i++) {
       g.addEdge(random.nextInt(100), random.nextInt(100));
     }
@@ -435,7 +511,9 @@ void main() {
 
   print(benchmark('AdjacencyMatrixGraph build', 1000, () {
     final g = AdjacencyMatrixGraph<int>();
-    for (var i = 0; i < 100; i++) g.addVertex(i);
+    for (var i = 0; i < 100; i++) {
+      g.addVertex(i);
+    }
     for (var i = 0; i < 200; i++) {
       g.addEdge(random.nextInt(100), random.nextInt(100));
     }
@@ -464,7 +542,9 @@ void main() {
   printSubHeader('Graph Traversals');
 
   final traversalGraph = Graph<int>();
-  for (var i = 0; i < 1000; i++) traversalGraph.addVertex(i);
+  for (var i = 0; i < 1000; i++) {
+    traversalGraph.addVertex(i);
+  }
   for (var i = 0; i < 2000; i++) {
     traversalGraph.addEdge(random.nextInt(1000), random.nextInt(1000));
   }

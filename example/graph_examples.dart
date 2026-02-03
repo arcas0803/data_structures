@@ -274,7 +274,9 @@ void adjacencyMatrixExamples() {
   print('--- Undirected Matrix Graph ---');
   final graph = AdjacencyMatrixGraph<int>();
 
-  for (var i = 0; i < 4; i++) graph.addVertex(i);
+  for (var i = 0; i < 4; i++) {
+    graph.addVertex(i);
+  }
   graph.addEdge(0, 1);
   graph.addEdge(0, 2);
   graph.addEdge(1, 2);

@@ -145,7 +145,9 @@ void doublyLinkedListExamples() {
   // Optimized access (from closer end)
   print('\n--- Optimized Access ---');
   final bigList = DoublyLinkedList<int>();
-  for (var i = 0; i < 10; i++) bigList.add(i);
+  for (var i = 0; i < 10; i++) {
+    bigList.add(i);
+  }
   print('List: ${bigList.values.toList()}');
   print('elementAt(2) - accessed from head');
   print('elementAt(8) - accessed from tail (closer!)');
@@ -162,7 +164,9 @@ void circularLinkedListExamples() {
   // Circular Singly Linked List
   print('--- Circular Singly Linked List ---');
   final circular = CircularLinkedList<int>();
-  for (var i = 1; i <= 5; i++) circular.add(i);
+  for (var i = 1; i <= 5; i++) {
+    circular.add(i);
+  }
   print('Initial: $circular');
 
   // Rotation

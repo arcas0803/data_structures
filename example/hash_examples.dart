@@ -195,7 +195,7 @@ void hashTableExamples() {
     for (var i = 0; i < nums.length; i++) {
       final complement = target - nums[i];
       if (seen.containsKey(complement)) {
-        return [seen[complement]!, i];
+        return [seen[complement], i];
       }
       seen[nums[i]] = i;
     }
@@ -414,7 +414,9 @@ void unionFindExamples() {
   print('\n--- Use Case: Social Network Groups ---');
   final network = UnionFind<String>();
   final people = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank'];
-  for (final p in people) network.makeSet(p);
+  for (final p in people) {
+    network.makeSet(p);
+  }
 
   // Friendships
   network.union('Alice', 'Bob');

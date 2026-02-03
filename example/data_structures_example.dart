@@ -132,7 +132,9 @@ void main() {
   // AVL
   print('⚖️  AVLTree (Self-Balancing)');
   final avl = AVLTree<int>();
-  for (var i = 1; i <= 15; i++) avl.insert(i);
+  for (var i = 1; i <= 15; i++) {
+    avl.insert(i);
+  }
   print('   Sequential insert 1-15: height = ${avl.height} (balanced!)');
   print('   Is valid AVL: ${avl.isValid}\n');
 

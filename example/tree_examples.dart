@@ -158,13 +158,17 @@ void avlExamples() {
 
   // Insert in order (worst case for BST)
   stopwatch.start();
-  for (var i = 0; i < 1000; i++) largeBST.insert(i);
+  for (var i = 0; i < 1000; i++) {
+    largeBST.insert(i);
+  }
   print(
       'BST insert 1000 sequential: ${stopwatch.elapsedMilliseconds}ms (height: ${largeBST.height})');
 
   stopwatch.reset();
   stopwatch.start();
-  for (var i = 0; i < 1000; i++) largeAVL.insert(i);
+  for (var i = 0; i < 1000; i++) {
+    largeAVL.insert(i);
+  }
   print(
       'AVL insert 1000 sequential: ${stopwatch.elapsedMilliseconds}ms (height: ${largeAVL.height})');
 
@@ -671,8 +675,8 @@ void fibonacciHeapExamples() {
   print('This is why Fibonacci Heap excels in Dijkstra\'s algorithm!');
 
   final heap2 = FibonacciHeap<int>.minHeap();
-  final nodeA = heap2.insert(10);
-  final nodeB = heap2.insert(20);
+  heap2.insert(10);
+  heap2.insert(20);
   final nodeC = heap2.insert(30);
   heap2.insert(5);
 
@@ -758,7 +762,7 @@ void minMaxHeapExamples() {
   for (final val in stream) {
     runningHeap.insert(val);
     print(
-        'After $val: min=${runningHeap.peekMin()}, max=${runningHeap.peekMax()}, range=${runningHeap.peekMax()! - runningHeap.peekMin()!}');
+        'After $val: min=${runningHeap.peekMin()}, max=${runningHeap.peekMax()}, range=${runningHeap.peekMax() - runningHeap.peekMin()}');
   }
 
   // Use case: Double-ended priority queue
