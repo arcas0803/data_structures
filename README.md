@@ -1,5 +1,8 @@
 # Data Structures Library / Librería de Estructuras de Datos
 
+[![Pub Version](https://img.shields.io/pub/v/data_structures)](https://pub.dev/packages/data_structures)
+[![CI](https://github.com/arcas0803/data_structures/actions/workflows/ci.yml/badge.svg)](https://github.com/arcas0803/data_structures/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/arcas0803/data_structures/branch/main/graph/badge.svg)](https://codecov.io/gh/arcas0803/data_structures)
 [![Dart](https://img.shields.io/badge/Dart-%3E%3D3.0-blue.svg)](https://dart.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 

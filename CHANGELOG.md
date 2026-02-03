@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.0.0] - 2026-02-02
+## [2.0.0] - 2026-02-03
 
 ### Added
 
@@ -30,6 +30,20 @@ All notable changes to this project will be documented in this file.
 - **AdjacencyMatrixGraph**: Matrix-based graph representation for dense graphs
 - **FlowNetwork**: Network flow with Ford-Fulkerson/Edmonds-Karp max-flow algorithm
 
+#### Examples and Documentation
+- Comprehensive example files (3,700+ lines):
+  - `benchmarks.dart`: Performance measurements for all structures
+  - `visualizations.dart`: ASCII art diagrams of data structures
+  - `linear_examples.dart`: Detailed linear structure examples
+  - `tree_examples.dart`: Tree structure examples with use cases
+  - `hash_examples.dart`: Hash table and set examples
+  - `graph_examples.dart`: Graph algorithms and network flow
+
+#### CI/CD
+- GitHub Actions workflow for CI (tests + coverage)
+- GitHub Actions workflow for auto-publish to pub.dev on version tags
+- MIT License
+
 ### Changed
 - Code comments now English-only (removed Spanish translations from code)
 - Documentation restructured: category-specific READMEs with bilingual content
@@ -37,6 +51,7 @@ All notable changes to this project will be documented in this file.
 
 ### Testing
 - 1246 total tests (up from 244) covering all structures
+- Coverage reporting with Codecov integration
 
 ---
 

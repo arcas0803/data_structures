@@ -79,10 +79,6 @@ class AVLTree<T extends Comparable<dynamic>> {
   /// Returns the height of the tree.
   int get height => _root?.height ?? 0;
 
-  int _getHeight(AVLNode<T>? node) => node?.height ?? 0;
-
-  int _max(int a, int b) => a > b ? a : b;
-
   // ============ Rotations ============
 
   /// Right rotation (for left-left case).
