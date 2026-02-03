@@ -58,13 +58,13 @@ void linkedListExamples() {
   print('\n--- Remove Operations ---');
   list.remove(100);
   print('After remove(100): $list');
-  
+
   list.removeFirst();
   print('After removeFirst(): $list');
-  
+
   list.removeLast();
   print('After removeLast(): $list');
-  
+
   list.removeAt(1);
   print('After removeAt(1): $list');
 
@@ -256,7 +256,7 @@ void stackExamples() {
   bool isBalanced(String expr) {
     final stack = Stack<String>();
     final pairs = {')': '(', ']': '[', '}': '{'};
-    
+
     for (final char in expr.split('')) {
       if ('([{'.contains(char)) {
         stack.push(char);
@@ -277,13 +277,13 @@ void stackExamples() {
   print('\n--- Use Case: Undo/Redo System ---');
   final undoStack = Stack<String>();
   final redoStack = Stack<String>();
-  
+
   void doAction(String action) {
     undoStack.push(action);
     redoStack.clear();
     print('Do: $action');
   }
-  
+
   void undo() {
     if (undoStack.isNotEmpty) {
       final action = undoStack.pop();
@@ -291,7 +291,7 @@ void stackExamples() {
       print('Undo: $action');
     }
   }
-  
+
   void redo() {
     if (redoStack.isNotEmpty) {
       final action = redoStack.pop();
@@ -344,12 +344,12 @@ void queueExamples() {
   // Use case: Print job queue
   print('\n--- Use Case: Print Job Queue ---');
   final printQueue = Queue<String>();
-  
+
   void addPrintJob(String doc) {
     printQueue.enqueue(doc);
     print('Added to queue: $doc');
   }
-  
+
   void processPrintJobs() {
     while (printQueue.isNotEmpty) {
       final job = printQueue.dequeue();
@@ -370,7 +370,7 @@ void queueExamples() {
   levels.enqueue([1]);
   levels.enqueue([2, 3]);
   levels.enqueue([4, 5, 6, 7]);
-  
+
   var level = 0;
   while (levels.isNotEmpty) {
     print('Level $level: ${levels.dequeue()}');
@@ -415,25 +415,25 @@ void dequeExamples() {
   List<int> maxSlidingWindow(List<int> nums, int k) {
     final result = <int>[];
     final deque = Deque<int>(); // Store indices
-    
+
     for (var i = 0; i < nums.length; i++) {
       // Remove indices outside window
       while (deque.isNotEmpty && deque.peekFirst()! < i - k + 1) {
         deque.removeFirst();
       }
-      
+
       // Remove smaller elements
       while (deque.isNotEmpty && nums[deque.peekLast()!] < nums[i]) {
         deque.removeLast();
       }
-      
+
       deque.addLast(i);
-      
+
       if (i >= k - 1) {
         result.add(nums[deque.peekFirst()!]);
       }
     }
-    
+
     return result;
   }
 
@@ -451,7 +451,7 @@ void dequeExamples() {
         deque.addLast(char);
       }
     }
-    
+
     while (deque.length > 1) {
       if (deque.removeFirst() != deque.removeLast()) {
         return false;
@@ -461,7 +461,8 @@ void dequeExamples() {
   }
 
   print('"racecar" is palindrome? ${isPalindrome("racecar")}');
-  print('"A man a plan a canal Panama" is palindrome? ${isPalindrome("A man a plan a canal Panama")}');
+  print(
+      '"A man a plan a canal Panama" is palindrome? ${isPalindrome("A man a plan a canal Panama")}');
   print('"hello" is palindrome? ${isPalindrome("hello")}');
 
   print('\n');
@@ -522,7 +523,7 @@ void skipListExamples() {
     largeSkipList.insert(i);
   }
   print('Insert 10,000 elements: ${stopwatch.elapsedMilliseconds}ms');
-  
+
   stopwatch.reset();
   stopwatch.start();
   for (var i = 0; i < 10000; i++) {

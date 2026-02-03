@@ -56,7 +56,8 @@ void main() {
   print('Adding: 10 → 20 → 30 → 40 → 50');
   print('');
   print('  ┌────┐    ┌────┐    ┌────┐    ┌────┐    ┌────┐');
-  print('  │ ${_fmt(10)} │───▶│ ${_fmt(20)} │───▶│ ${_fmt(30)} │───▶│ ${_fmt(40)} │───▶│ ${_fmt(50)} │───▶ null');
+  print(
+      '  │ ${_fmt(10)} │───▶│ ${_fmt(20)} │───▶│ ${_fmt(30)} │───▶│ ${_fmt(40)} │───▶│ ${_fmt(50)} │───▶ null');
   print('  └────┘    └────┘    └────┘    └────┘    └────┘');
   print('    ▲');
   print('   head');
@@ -135,7 +136,8 @@ void main() {
   printTitle('SKIP LIST');
 
   printSection('Skip List Structure');
-  print('A probabilistic data structure with multiple levels for O(log n) search');
+  print(
+      'A probabilistic data structure with multiple levels for O(log n) search');
   print('');
   print('Level 3:  ╔═══╗─────────────────────────────────────────▶╔═══╗');
   print('          ║ H ║                                          ║ ∞ ║');
@@ -168,13 +170,15 @@ void main() {
   print('  ┌───┐');
   print('  │ 0 │──▶ null');
   print('  ├───┤');
-  print('  │ 1 │──▶ [${C.green}"apple"${C.reset}:5] ──▶ [${C.green}"kiwi"${C.reset}:3] ──▶ null');
+  print(
+      '  │ 1 │──▶ [${C.green}"apple"${C.reset}:5] ──▶ [${C.green}"kiwi"${C.reset}:3] ──▶ null');
   print('  ├───┤');
   print('  │ 2 │──▶ [${C.green}"banana"${C.reset}:7] ──▶ null');
   print('  ├───┤');
   print('  │ 3 │──▶ null');
   print('  ├───┤');
-  print('  │ 4 │──▶ [${C.green}"orange"${C.reset}:2] ──▶ [${C.green}"grape"${C.reset}:9] ──▶ null');
+  print(
+      '  │ 4 │──▶ [${C.green}"orange"${C.reset}:2] ──▶ [${C.green}"grape"${C.reset}:9] ──▶ null');
   print('  └───┘');
   print('');
   print('  hash("apple") % 5 = 1');
@@ -185,15 +189,18 @@ void main() {
   print('');
   print('  Bit Array (m=16 bits, k=3 hash functions):');
   print('  ┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐');
-  print('  │0│${C.green}1${C.reset}│0│${C.green}1${C.reset}│0│0│${C.green}1${C.reset}│0│${C.green}1${C.reset}│0│0│${C.green}1${C.reset}│0│${C.green}1${C.reset}│0│0│');
+  print(
+      '  │0│${C.green}1${C.reset}│0│${C.green}1${C.reset}│0│0│${C.green}1${C.reset}│0│${C.green}1${C.reset}│0│0│${C.green}1${C.reset}│0│${C.green}1${C.reset}│0│0│');
   print('  └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘');
   print('   0 1 2 3 4 5 6 7 8 9 ...');
   print('');
   print('  insert("hello"): h₁=1, h₂=6, h₃=11 → set bits 1,6,11');
   print('  insert("world"): h₁=3, h₂=8, h₃=13 → set bits 3,8,13');
   print('');
-  print('  contains("hello")? Check bits 1,6,11 → all 1 → ${C.green}probably yes${C.reset}');
-  print('  contains("test")?  Check bits 2,5,9 → some 0 → ${C.red}definitely no${C.reset}');
+  print(
+      '  contains("hello")? Check bits 1,6,11 → all 1 → ${C.green}probably yes${C.reset}');
+  print(
+      '  contains("test")?  Check bits 2,5,9 → some 0 → ${C.red}definitely no${C.reset}');
 
   // ================================================================
   // UNION FIND
@@ -259,7 +266,8 @@ void main() {
   print('');
   print('  Height: 5');
   print('');
-  print('  ${C.green}AVL maintains O(log n) height through rotations!${C.reset}');
+  print(
+      '  ${C.green}AVL maintains O(log n) height through rotations!${C.reset}');
 
   printSection('AVL Rotations');
   print('');
@@ -327,7 +335,8 @@ void main() {
   print('                   ┌────┴────┐');
   print('                   │ r       │ t');
   print('                ┌──┴──┐   ┌──┴──┐');
-  print('                │ r${C.green}*${C.reset}  │   │ t${C.green}*${C.reset}  │  ← ${C.green}*${C.reset} = end of word');
+  print(
+      '                │ r${C.green}*${C.reset}  │   │ t${C.green}*${C.reset}  │  ← ${C.green}*${C.reset} = end of word');
   print('                └──┬──┘   └─────┘');
   print('              ┌────┴────┐');
   print('              │ d       │ e');
@@ -376,9 +385,11 @@ void main() {
   print('');
   print('  Level 0 (min):       ${C.cyan}3${C.reset}');
   print('                      / \\');
-  print('  Level 1 (max):    ${C.yellow}91${C.reset}   ${C.yellow}84${C.reset}');
+  print(
+      '  Level 1 (max):    ${C.yellow}91${C.reset}   ${C.yellow}84${C.reset}');
   print('                   /  \\   / \\');
-  print('  Level 2 (min): ${C.cyan}12${C.reset}  ${C.cyan}19${C.reset} ${C.cyan}23${C.reset} ${C.cyan}31${C.reset}');
+  print(
+      '  Level 2 (min): ${C.cyan}12${C.reset}  ${C.cyan}19${C.reset} ${C.cyan}23${C.reset} ${C.cyan}31${C.reset}');
   print('');
   print('  peekMin() = ${C.cyan}3${C.reset}  (root)');
   print('  peekMax() = ${C.yellow}91${C.reset} (max of level 1)');
@@ -436,7 +447,8 @@ void main() {
   print('              ┌───────────┬┴┬───────────┐');
   print('              ▼           ▼ ▼           ▼');
   print('         ┌────────┐ ┌─────────┐ ┌────────────┐');
-  print('         │5:v|7:v │◀▶│12:v|15:v│◀▶│25:v|30:v  │ ← Leaves (key:value, linked)');
+  print(
+      '         │5:v|7:v │◀▶│12:v|15:v│◀▶│25:v|30:v  │ ← Leaves (key:value, linked)');
   print('         └────────┘ └─────────┘ └────────────┘');
   print('');
   print('  ${C.green}Range query [12, 25]: scan linked leaves!${C.reset}');
@@ -510,13 +522,15 @@ void main() {
   print('           / | \\   |');
   print('          3  4  5──6');
   print('');
-  print('  BFS from 1: [${C.cyan}1${C.reset}, 2, 3, 4, 5, 6]  ← Level by level');
+  print(
+      '  BFS from 1: [${C.cyan}1${C.reset}, 2, 3, 4, 5, 6]  ← Level by level');
   print('');
   print('  Level 0:  ${C.cyan}1${C.reset}');
   print('  Level 1:  2, 3, 4, 5');
   print('  Level 2:  6');
   print('');
-  print('  DFS from 1: [${C.yellow}1${C.reset}, 2, 6, 5, 3, 4]  ← Go deep first');
+  print(
+      '  DFS from 1: [${C.yellow}1${C.reset}, 2, 6, 5, 3, 4]  ← Go deep first');
   print('');
   print('  Stack: 1→2→6→(backtrack)→5→(backtrack)→3→4');
 
@@ -556,12 +570,16 @@ void main() {
   // ================================================================
   print('');
   print('${C.bold}${C.green}');
-  print('╔═══════════════════════════════════════════════════════════════════╗');
-  print('║                    VISUALIZATIONS COMPLETE                        ║');
-  print('╠═══════════════════════════════════════════════════════════════════╣');
+  print(
+      '╔═══════════════════════════════════════════════════════════════════╗');
+  print(
+      '║                    VISUALIZATIONS COMPLETE                        ║');
+  print(
+      '╠═══════════════════════════════════════════════════════════════════╣');
   print('║  All data structures illustrated with ASCII art                  ║');
   print('║  Run the examples and benchmarks for more details!               ║');
-  print('╚═══════════════════════════════════════════════════════════════════╝');
+  print(
+      '╚═══════════════════════════════════════════════════════════════════╝');
   print(C.reset);
 }
 

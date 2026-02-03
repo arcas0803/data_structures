@@ -496,7 +496,8 @@ void main() {
         stringTree.addChild('root', 'child2');
         expect(stringTree.size, equals(3));
         expect(stringTree.contains('child1'), isTrue);
-        expect(stringTree.preOrder.toList(), equals(['root', 'child1', 'child2']));
+        expect(
+            stringTree.preOrder.toList(), equals(['root', 'child1', 'child2']));
       });
     });
   });

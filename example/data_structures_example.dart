@@ -1,7 +1,7 @@
 /// Data Structures Library - Main Demo
-/// 
+///
 /// Run this file for a quick overview: dart run example/data_structures_example.dart
-/// 
+///
 /// For detailed examples, run:
 ///   dart run example/linear_examples.dart   - LinkedList, Stack, Queue, etc.
 ///   dart run example/tree_examples.dart     - BST, AVL, Heap, Trie, etc.
@@ -14,9 +14,11 @@ library;
 import 'package:data_structures/data_structures.dart';
 
 void main() {
-  print('╔═══════════════════════════════════════════════════════════════════╗');
+  print(
+      '╔═══════════════════════════════════════════════════════════════════╗');
   print('║           DATA STRUCTURES LIBRARY - QUICK DEMO                   ║');
-  print('╚═══════════════════════════════════════════════════════════════════╝');
+  print(
+      '╚═══════════════════════════════════════════════════════════════════╝');
   print('');
   print('This demo shows basic usage of each structure category.');
   print('Run individual example files for comprehensive examples.');
@@ -72,7 +74,8 @@ void main() {
     skipList.insert(item);
   }
   print('   Sorted: ${skipList.toList()}');
-  print('   Contains 5? ${skipList.contains(5)}, Min: ${skipList.min}, Max: ${skipList.max}\n');
+  print(
+      '   Contains 5? ${skipList.contains(5)}, Min: ${skipList.min}, Max: ${skipList.max}\n');
 
   // ============ DIRECT ACCESS STRUCTURES ============
   print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
@@ -166,7 +169,7 @@ void main() {
   final fibHeap = FibonacciHeap<int>.minHeap();
   final nodes = [5, 3, 8, 1].map((v) => fibHeap.insert(v)).toList();
   print('   Min: ${fibHeap.peek}');
-  fibHeap.decreaseKey(nodes[2], 0);  // Decrease 8 to 0
+  fibHeap.decreaseKey(nodes[2], 0); // Decrease 8 to 0
   print('   After decreaseKey(8→0): min = ${fibHeap.peek}\n');
 
   // Min-Max Heap

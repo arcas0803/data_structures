@@ -32,7 +32,8 @@ class TrieNode {
   int get childCount => children.length;
 
   @override
-  String toString() => 'TrieNode(children: ${children.keys.toList()}, end: $isEndOfWord)';
+  String toString() =>
+      'TrieNode(children: ${children.keys.toList()}, end: $isEndOfWord)';
 }
 
 /// A trie (prefix tree) data structure for efficient string operations.
@@ -269,7 +270,8 @@ class Trie {
       final isLastChild = i == entries.length - 1;
       final endMarker = entry.value.isEndOfWord ? '*' : '';
 
-      buffer.writeln('$prefix${isLastChild ? '└── ' : '├── '}${entry.key}$endMarker');
+      buffer.writeln(
+          '$prefix${isLastChild ? '└── ' : '├── '}${entry.key}$endMarker');
 
       _buildTreeString(
         entry.value,

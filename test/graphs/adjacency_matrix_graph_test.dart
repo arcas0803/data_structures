@@ -618,9 +618,12 @@ void main() {
       listGraph.addEdge('A', 'B');
       listGraph.addEdge('B', 'C');
 
-      expect(matrixGraph.hasEdge('A', 'B'), equals(listGraph.hasEdge('A', 'B')));
-      expect(matrixGraph.hasEdge('B', 'A'), equals(listGraph.hasEdge('B', 'A')));
-      expect(matrixGraph.hasEdge('A', 'C'), equals(listGraph.hasEdge('A', 'C')));
+      expect(
+          matrixGraph.hasEdge('A', 'B'), equals(listGraph.hasEdge('A', 'B')));
+      expect(
+          matrixGraph.hasEdge('B', 'A'), equals(listGraph.hasEdge('B', 'A')));
+      expect(
+          matrixGraph.hasEdge('A', 'C'), equals(listGraph.hasEdge('A', 'C')));
     });
 
     test('should produce same neighbors', () {
@@ -670,10 +673,10 @@ void main() {
       listGraph.addEdge('A', 'B', 5.0);
       listGraph.addEdge('B', 'C', 3.0);
 
-      expect(
-          matrixGraph.getWeight('A', 'B'), equals(listGraph.getEdgeWeight('A', 'B')));
-      expect(
-          matrixGraph.getWeight('B', 'C'), equals(listGraph.getEdgeWeight('B', 'C')));
+      expect(matrixGraph.getWeight('A', 'B'),
+          equals(listGraph.getEdgeWeight('A', 'B')));
+      expect(matrixGraph.getWeight('B', 'C'),
+          equals(listGraph.getEdgeWeight('B', 'C')));
     });
 
     group('Directed graph comparison', () {

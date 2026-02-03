@@ -454,7 +454,8 @@ class MinMaxHeap<T extends Comparable<dynamic>> {
     if (index >= _data.length) return;
 
     final levelType = _isMinLevel(index) ? 'min' : 'max';
-    buffer.writeln('$prefix${isLast ? '└── ' : '├── '}${_data[index]} ($levelType)');
+    buffer.writeln(
+        '$prefix${isLast ? '└── ' : '├── '}${_data[index]} ($levelType)');
 
     final left = _leftChild(index);
     final right = _rightChild(index);

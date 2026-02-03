@@ -38,7 +38,8 @@ class Edge<T> {
   int get hashCode => destination.hashCode ^ weight.hashCode;
 
   @override
-  String toString() => weight == 1.0 ? '->$destination' : '-($weight)->$destination';
+  String toString() =>
+      weight == 1.0 ? '->$destination' : '-($weight)->$destination';
 }
 
 /// Graph type enumeration.
@@ -165,7 +166,8 @@ class Graph<T> {
     final removed = _adjacencyList[source]!.length < lengthBefore;
 
     if (!isDirected && source != destination) {
-      _adjacencyList[destination]?.removeWhere((edge) => edge.destination == source);
+      _adjacencyList[destination]
+          ?.removeWhere((edge) => edge.destination == source);
     }
 
     return removed;

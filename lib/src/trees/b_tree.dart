@@ -69,8 +69,7 @@ class BTree<K extends Comparable<dynamic>, V> {
   /// - Each node has at most 2t-1 keys
   /// - Each non-root node has at least t-1 keys
   /// - Each non-leaf node has at most 2t children
-  BTree([int minDegree = 2])
-      : _minDegree = minDegree < 2 ? 2 : minDegree;
+  BTree([int minDegree = 2]) : _minDegree = minDegree < 2 ? 2 : minDegree;
 
   /// Returns the minimum degree of this B-Tree.
   int get minDegree => _minDegree;
@@ -348,7 +347,8 @@ class BTree<K extends Comparable<dynamic>, V> {
       _borrowFromPrev(node, idx);
     }
     // Try to borrow from right sibling
-    else if (idx < node.keyCount && node.children[idx + 1]!.keyCount > _minKeys) {
+    else if (idx < node.keyCount &&
+        node.children[idx + 1]!.keyCount > _minKeys) {
       _borrowFromNext(node, idx);
     }
     // Merge with a sibling
@@ -544,8 +544,7 @@ class BPlusTree<K extends Comparable<dynamic>, V> {
   final int _minDegree;
 
   /// Creates an empty B+ Tree with the specified minimum degree.
-  BPlusTree([int minDegree = 2])
-      : _minDegree = minDegree < 2 ? 2 : minDegree;
+  BPlusTree([int minDegree = 2]) : _minDegree = minDegree < 2 ? 2 : minDegree;
 
   /// Returns the minimum degree of this B+ Tree.
   int get minDegree => _minDegree;

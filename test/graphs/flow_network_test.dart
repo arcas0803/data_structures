@@ -504,7 +504,8 @@ void main() {
           final flow = entry.value;
           final capacity = network.getCapacity(from, to);
           expect(flow, lessThanOrEqualTo(capacity),
-              reason: 'Flow $flow exceeds capacity $capacity on edge $from->$to');
+              reason:
+                  'Flow $flow exceeds capacity $capacity on edge $from->$to');
         }
       });
     });

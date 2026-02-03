@@ -23,7 +23,8 @@ class DynamicArray<T> {
 
   /// Creates an empty dynamic array with optional initial [capacity].
   DynamicArray([int capacity = _defaultCapacity])
-      : _data = List<T?>.filled(capacity < 1 ? _defaultCapacity : capacity, null);
+      : _data =
+            List<T?>.filled(capacity < 1 ? _defaultCapacity : capacity, null);
 
   /// Creates a dynamic array from an iterable.
   factory DynamicArray.from(Iterable<T> elements) {
@@ -250,8 +251,12 @@ class DynamicArray<T> {
 
   /// Shrinks the array if it's using less than [_shrinkThreshold] of capacity.
   void _shrinkIfNeeded() {
-    if (_size > 0 && _size < _data.length * _shrinkThreshold && _data.length > _defaultCapacity) {
-      _resize((_data.length / _growthFactor).toInt().clamp(_defaultCapacity, _data.length));
+    if (_size > 0 &&
+        _size < _data.length * _shrinkThreshold &&
+        _data.length > _defaultCapacity) {
+      _resize((_data.length / _growthFactor)
+          .toInt()
+          .clamp(_defaultCapacity, _data.length));
     }
   }
 

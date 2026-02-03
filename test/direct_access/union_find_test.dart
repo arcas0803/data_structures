@@ -250,7 +250,8 @@ void main() {
         uf.makeSet('b');
         expect(uf.elementCount, equals(2));
         uf.union('a', 'b');
-        expect(uf.elementCount, equals(2)); // Union doesn't change element count
+        expect(
+            uf.elementCount, equals(2)); // Union doesn't change element count
       });
     });
 

@@ -175,7 +175,8 @@ class SegmentTree<T> {
       return _identity;
     }
     if (left < 0 || right >= _data.length || left > right) {
-      throw RangeError('Invalid range: [$left, $right] for length ${_data.length}');
+      throw RangeError(
+          'Invalid range: [$left, $right] for length ${_data.length}');
     }
     return _query(0, 0, _data.length - 1, left, right);
   }
@@ -245,12 +246,14 @@ class SegmentTree<T> {
     }
     if (_data.isEmpty) return;
     if (left < 0 || right >= _data.length || left > right) {
-      throw RangeError('Invalid range: [$left, $right] for length ${_data.length}');
+      throw RangeError(
+          'Invalid range: [$left, $right] for length ${_data.length}');
     }
     _updateRange(0, 0, _data.length - 1, left, right, delta);
   }
 
-  void _updateRange(int node, int start, int end, int left, int right, T delta) {
+  void _updateRange(
+      int node, int start, int end, int left, int right, T delta) {
     if (right < start || left > end) {
       // Out of range
       return;
@@ -359,7 +362,8 @@ class FenwickTree {
   /// Returns the sum of elements from [left] to [right] inclusive. O(log n)
   num rangeSum(int left, int right) {
     if (left < 0 || right >= _data.length || left > right) {
-      throw RangeError('Invalid range: [$left, $right] for length ${_data.length}');
+      throw RangeError(
+          'Invalid range: [$left, $right] for length ${_data.length}');
     }
     if (left == 0) {
       return prefixSum(right);

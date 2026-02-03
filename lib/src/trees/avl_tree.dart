@@ -33,8 +33,7 @@ class AVLNode<T> {
   /// Returns the balance factor of this node.
   int get balanceFactor => _getHeight(left) - _getHeight(right);
 
-  static int _getHeight<T>(AVLNode<T>? node) =>
-      node?.height ?? 0;
+  static int _getHeight<T>(AVLNode<T>? node) => node?.height ?? 0;
 
   /// Updates the height based on children.
   void updateHeight() {

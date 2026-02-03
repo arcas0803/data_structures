@@ -6,7 +6,8 @@ import 'package:data_structures/data_structures.dart';
 void main() {
   group('BloomFilter', () {
     group('constructor', () {
-      test('should create filter with expected elements and false positive rate',
+      test(
+          'should create filter with expected elements and false positive rate',
           () {
         final filter = BloomFilter<String>(100, 0.01);
         expect(filter.bitCount, greaterThan(0));
@@ -732,8 +733,7 @@ void main() {
 
         if (tested > 0) {
           final fpRate = falsePositives / tested;
-          expect(fpRate, lessThan(0.05),
-              reason: 'FP rate $fpRate is too high');
+          expect(fpRate, lessThan(0.05), reason: 'FP rate $fpRate is too high');
         }
       });
     });

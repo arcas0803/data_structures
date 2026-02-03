@@ -82,6 +82,7 @@ void bstExamples() {
     final sorted = tree.inOrder.toList();
     return k <= sorted.length ? sorted[k - 1] : null;
   }
+
   print('3rd smallest: ${kthSmallest(bst, 3)}');
   print('5th smallest: ${kthSmallest(bst, 5)}');
 
@@ -97,12 +98,12 @@ void avlExamples() {
   print('--- BST vs AVL: Sequential Insertion ---');
   final bst = BinarySearchTree<int>();
   final avl = AVLTree<int>();
-  
+
   for (var i = 1; i <= 15; i++) {
     bst.insert(i);
     avl.insert(i);
   }
-  
+
   print('After inserting 1-15 sequentially:');
   print('BST height: ${bst.height} (degenerate - like a linked list!)');
   print('AVL height: ${avl.height} (balanced!)');
@@ -125,7 +126,7 @@ void avlExamples() {
   print('\n--- Insertion with Rebalancing ---');
   final avl2 = AVLTree<int>();
   print('Inserting values that would cause rotations...');
-  
+
   // This causes a Left-Left case (Right rotation)
   avl2.insert(30);
   avl2.insert(20);
@@ -152,18 +153,20 @@ void avlExamples() {
   print('\n--- Performance Comparison (Worst Case) ---');
   final largeBST = BinarySearchTree<int>();
   final largeAVL = AVLTree<int>();
-  
+
   final stopwatch = Stopwatch();
-  
+
   // Insert in order (worst case for BST)
   stopwatch.start();
   for (var i = 0; i < 1000; i++) largeBST.insert(i);
-  print('BST insert 1000 sequential: ${stopwatch.elapsedMilliseconds}ms (height: ${largeBST.height})');
-  
+  print(
+      'BST insert 1000 sequential: ${stopwatch.elapsedMilliseconds}ms (height: ${largeBST.height})');
+
   stopwatch.reset();
   stopwatch.start();
   for (var i = 0; i < 1000; i++) largeAVL.insert(i);
-  print('AVL insert 1000 sequential: ${stopwatch.elapsedMilliseconds}ms (height: ${largeAVL.height})');
+  print(
+      'AVL insert 1000 sequential: ${stopwatch.elapsedMilliseconds}ms (height: ${largeAVL.height})');
 
   print('\n');
 }
@@ -219,6 +222,7 @@ void heapExamples() {
     final heap = Heap.from(arr, type: HeapType.min);
     return heap.extractAll();
   }
+
   final unsorted = [64, 34, 25, 12, 22, 11, 90];
   print('Unsorted: $unsorted');
   print('Sorted:   ${heapSort(unsorted)}');
@@ -235,6 +239,7 @@ void heapExamples() {
     }
     return minHeap.extractAll().reversed.toList();
   }
+
   final numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
   print('Array: $numbers');
   print('3 largest: ${kLargest(numbers, 3)}');
@@ -256,7 +261,9 @@ void priorityQueueExamples() {
   minPQ.enqueue(2);
   minPQ.enqueue(4);
   print('Enqueued: 5, 1, 3, 2, 4');
-  print('Dequeue order: ', );
+  print(
+    'Dequeue order: ',
+  );
   while (minPQ.isNotEmpty) {
     print('  ${minPQ.dequeue()}');
   }
@@ -274,16 +281,21 @@ void priorityQueueExamples() {
   // Use case: Task scheduling by priority
   print('\n--- Use Case: Task Scheduling ---');
   final taskQueue = PriorityQueue<int>();
-  
+
   print('Adding tasks with priorities (lower = more urgent):');
   final tasks = {'Email': 3, 'Bug fix': 1, 'Meeting': 2, 'Documentation': 4};
   for (final entry in tasks.entries) {
     taskQueue.enqueue(entry.value);
     print('  ${entry.key} (priority ${entry.value})');
   }
-  
+
   print('\nProcessing order:');
-  final priorityToTask = {1: 'Bug fix', 2: 'Meeting', 3: 'Email', 4: 'Documentation'};
+  final priorityToTask = {
+    1: 'Bug fix',
+    2: 'Meeting',
+    3: 'Email',
+    4: 'Documentation'
+  };
   while (taskQueue.isNotEmpty) {
     final priority = taskQueue.dequeue();
     print('  → ${priorityToTask[priority]}');
@@ -294,13 +306,13 @@ void priorityQueueExamples() {
   List<int> mergeKSortedLists(List<List<int>> lists) {
     final result = <int>[];
     final pq = PriorityQueue<int>();
-    
+
     for (final list in lists) {
       for (final num in list) {
         pq.enqueue(num);
       }
     }
-    
+
     while (pq.isNotEmpty) {
       result.add(pq.dequeue());
     }
@@ -385,7 +397,15 @@ void trieExamples() {
 
   // Insertion
   print('--- Building Dictionary ---');
-  final words = ['apple', 'app', 'application', 'apply', 'banana', 'band', 'bandana'];
+  final words = [
+    'apple',
+    'app',
+    'application',
+    'apply',
+    'banana',
+    'band',
+    'bandana'
+  ];
   trie.insertAll(words);
   print('Words: $words');
   print('Word count: ${trie.wordCount}');
@@ -395,7 +415,7 @@ void trieExamples() {
   print('\n--- Search Operations ---');
   print('Contains "apple": ${trie.contains('apple')}');
   print('Contains "app": ${trie.contains('app')}');
-  print('Contains "appl": ${trie.contains('appl')}');  // Not a complete word
+  print('Contains "appl": ${trie.contains('appl')}'); // Not a complete word
 
   // Prefix operations
   print('\n--- Prefix Operations ---');
@@ -427,8 +447,15 @@ void trieExamples() {
   print('\n--- Use Case: Autocomplete ---');
   final autocomplete = Trie();
   autocomplete.insertAll([
-    'hello', 'help', 'helicopter', 'hell', 'hero',
-    'hear', 'heart', 'heat', 'heavy'
+    'hello',
+    'help',
+    'helicopter',
+    'hell',
+    'hero',
+    'hear',
+    'heart',
+    'heat',
+    'heavy'
   ]);
 
   String getSuggestions(String prefix) {
@@ -446,7 +473,7 @@ void trieExamples() {
   dictionary.insertAll(['the', 'their', 'there', 'they', 'them']);
 
   bool isValidWord(String word) => dictionary.contains(word.toLowerCase());
-  
+
   final sentence = ['The', 'cat', 'is', 'there'];
   for (final word in sentence) {
     final valid = isValidWord(word);
@@ -550,14 +577,14 @@ void segmentTreeExamples() {
   final arr = [1, 3, 5, 7, 9, 11];
   final sumTree = SegmentTree<num>.sum(arr);
   print('Array: $arr');
-  print('Query sum [1,4]: ${sumTree.query(1, 4)}');  // 3+5+7+9 = 24
-  print('Query sum [0,5]: ${sumTree.query(0, 5)}');  // All = 36
+  print('Query sum [1,4]: ${sumTree.query(1, 4)}'); // 3+5+7+9 = 24
+  print('Query sum [0,5]: ${sumTree.query(0, 5)}'); // All = 36
 
   // Update
   print('\n--- Update ---');
-  sumTree.update(2, 10);  // Change 5 to 10
+  sumTree.update(2, 10); // Change 5 to 10
   print('After update(2, 10):');
-  print('Query sum [1,4]: ${sumTree.query(1, 4)}');  // 3+10+7+9 = 29
+  print('Query sum [1,4]: ${sumTree.query(1, 4)}'); // 3+10+7+9 = 29
 
   // Segment Tree for min
   print('\n--- Segment Tree (Min) ---');
@@ -577,14 +604,14 @@ void segmentTreeExamples() {
   final data = [3, 2, 5, 1, 7, 4, 2, 6];
   final fenwick = FenwickTree(data);
   print('Array: $data');
-  print('Prefix sum [0,3]: ${fenwick.prefixSum(3)}');  // 3+2+5+1 = 11
-  print('Range sum [2,5]: ${fenwick.rangeSum(2, 5)}');  // 5+1+7+4 = 17
+  print('Prefix sum [0,3]: ${fenwick.prefixSum(3)}'); // 3+2+5+1 = 11
+  print('Range sum [2,5]: ${fenwick.rangeSum(2, 5)}'); // 5+1+7+4 = 17
 
   // Update Fenwick
   print('\n--- Fenwick Update ---');
-  fenwick.update(2, 5);  // Add 5 to index 2
+  fenwick.update(2, 5); // Add 5 to index 2
   print('After update(2, +5):');
-  print('Prefix sum [0,3]: ${fenwick.prefixSum(3)}');  // 3+2+10+1 = 16
+  print('Prefix sum [0,3]: ${fenwick.prefixSum(3)}'); // 3+2+10+1 = 16
 
   // Use case: Range sum with updates
   print('\n--- Use Case: Stock Portfolio Value ---');
@@ -595,8 +622,8 @@ void segmentTreeExamples() {
   print('Total portfolio value: ${portfolio.query(0, 4)}');
 
   // Stock price changes
-  portfolio.update(2, 180);  // Stock 2: 200 -> 180
-  portfolio.update(4, 250);  // Stock 4: 225 -> 250
+  portfolio.update(2, 180); // Stock 2: 200 -> 180
+  portfolio.update(4, 250); // Stock 4: 225 -> 250
   print('After price changes: Total = ${portfolio.query(0, 4)}');
 
   // Use case: Count inversions helper
@@ -606,7 +633,7 @@ void segmentTreeExamples() {
 
   print('Adding elements: $sequence');
   for (final num in sequence) {
-    freq.update(num, 1);  // Increment frequency
+    freq.update(num, 1); // Increment frequency
   }
 
   print('Count of numbers <= 5: ${freq.prefixSum(5)}');
@@ -676,7 +703,7 @@ void fibonacciHeapExamples() {
   final vertexNodes = <String, FibonacciHeapNode<int>>{};
 
   // Initialize distances
-  vertexNodes['A'] = distances.insert(0);    // Source
+  vertexNodes['A'] = distances.insert(0); // Source
   vertexNodes['B'] = distances.insert(1000);
   vertexNodes['C'] = distances.insert(1000);
   vertexNodes['D'] = distances.insert(1000);
@@ -685,12 +712,12 @@ void fibonacciHeapExamples() {
 
   // Simulate relaxation
   print('Relaxing edges...');
-  distances.decreaseKey(vertexNodes['B']!, 5);   // Found path to B with cost 5
-  distances.decreaseKey(vertexNodes['C']!, 3);   // Found path to C with cost 3
+  distances.decreaseKey(vertexNodes['B']!, 5); // Found path to B with cost 5
+  distances.decreaseKey(vertexNodes['C']!, 3); // Found path to C with cost 3
   print('After relaxation: Min = ${distances.peek} (should be 3 for C)');
 
-  distances.extractMin();  // Process C
-  distances.decreaseKey(vertexNodes['D']!, 4);   // Found path C->D
+  distances.extractMin(); // Process C
+  distances.decreaseKey(vertexNodes['D']!, 4); // Found path C->D
   print('Next min: ${distances.peek}');
 
   print('\n');
@@ -730,7 +757,8 @@ void minMaxHeapExamples() {
   print('Processing stream: $stream');
   for (final val in stream) {
     runningHeap.insert(val);
-    print('After $val: min=${runningHeap.peekMin()}, max=${runningHeap.peekMax()}, range=${runningHeap.peekMax()! - runningHeap.peekMin()!}');
+    print(
+        'After $val: min=${runningHeap.peekMin()}, max=${runningHeap.peekMax()}, range=${runningHeap.peekMax()! - runningHeap.peekMin()!}');
   }
 
   // Use case: Double-ended priority queue

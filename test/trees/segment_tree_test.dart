@@ -881,7 +881,8 @@ void main() {
       for (var i = 0; i < 30; i++) {
         final left = random.nextInt(25);
         final right = left + random.nextInt(25);
-        expect(segTree.query(left, right), equals(fenTree.rangeSum(left, right)),
+        expect(
+            segTree.query(left, right), equals(fenTree.rangeSum(left, right)),
             reason: 'Mismatch at range [$left, $right]');
       }
     });

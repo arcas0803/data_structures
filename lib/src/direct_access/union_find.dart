@@ -168,8 +168,7 @@ class UnionFindInt {
 
   /// Creates a Union-Find structure with [n] elements (0 to n-1),
   /// each initially in its own set.
-  UnionFindInt(int n)
-      : _setCount = n {
+  UnionFindInt(int n) : _setCount = n {
     if (n < 0) throw ArgumentError('Size must be non-negative: $n');
     _parent = List<int>.generate(n, (i) => i);
     _rank = List<int>.filled(n, 0);

@@ -244,7 +244,8 @@ class Heap<T extends Comparable<dynamic>> {
     return buffer.toString();
   }
 
-  void _buildTreeString(int index, String prefix, bool isLast, StringBuffer buffer) {
+  void _buildTreeString(
+      int index, String prefix, bool isLast, StringBuffer buffer) {
     if (index >= _data.length) return;
 
     buffer.writeln('$prefix${isLast ? '└── ' : '├── '}${_data[index]}');
@@ -279,7 +280,8 @@ class PriorityQueue<T extends Comparable<dynamic>> {
 
   /// Creates a priority queue from an iterable.
   factory PriorityQueue.from(Iterable<T> elements, {bool maxPriority = false}) {
-    final queue = maxPriority ? PriorityQueue<T>.maxPriority() : PriorityQueue<T>();
+    final queue =
+        maxPriority ? PriorityQueue<T>.maxPriority() : PriorityQueue<T>();
     queue._heap._data.addAll(elements);
     queue._heap._heapify();
     return queue;

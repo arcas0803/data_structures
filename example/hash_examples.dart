@@ -159,7 +159,7 @@ void hashTableExamples() {
   print('\n--- Put If Absent ---');
   map.putIfAbsent('grape', () => 6);
   print('After putIfAbsent("grape", 6): ${map.tryGet('grape')}');
-  map.putIfAbsent('apple', () => 100);  // Won't update
+  map.putIfAbsent('apple', () => 100); // Won't update
   print('After putIfAbsent("apple", 100): ${map.tryGet('apple')} (unchanged)');
 
   // Statistics
@@ -221,7 +221,7 @@ void hashSetExamples() {
   setA.add(1);
   setA.add(2);
   setA.add(3);
-  setA.add(2);  // Duplicate
+  setA.add(2); // Duplicate
   print('After adding 1, 2, 3, 2: $setA');
   print('Length: ${setA.length} (no duplicates!)');
 
@@ -354,7 +354,7 @@ void unionFindExamples() {
 
   // Integer Union-Find (optimized)
   print('\n--- UnionFindInt (Optimized) ---');
-  final ufInt = UnionFindInt(10);  // 0 to 9
+  final ufInt = UnionFindInt(10); // 0 to 9
   print('Created with 10 elements (0-9)');
 
   ufInt.union(0, 1);
@@ -390,7 +390,8 @@ void unionFindExamples() {
   final mst = <(int, int, int)>[];
   var totalWeight = 0;
 
-  print('Edges sorted by weight: ${sortedEdges.map((e) => '(${e.$1}-${e.$2}:${e.$3})').join(', ')}');
+  print(
+      'Edges sorted by weight: ${sortedEdges.map((e) => '(${e.$1}-${e.$2}:${e.$3})').join(', ')}');
   print('');
 
   for (final edge in sortedEdges) {
@@ -422,8 +423,10 @@ void unionFindExamples() {
 
   print('Friendships: Alice-Bob, Bob-Charlie, Diana-Eve');
   print('Groups: ${network.allSets}');
-  print('Are Alice and Charlie connected? ${network.connected('Alice', 'Charlie')}');
-  print('Are Alice and Diana connected? ${network.connected('Alice', 'Diana')}');
+  print(
+      'Are Alice and Charlie connected? ${network.connected('Alice', 'Charlie')}');
+  print(
+      'Are Alice and Diana connected? ${network.connected('Alice', 'Diana')}');
 
   print('\n');
 }
@@ -435,7 +438,8 @@ void bloomFilterExamples() {
 
   // Creation
   print('--- Creation ---');
-  final bloom = BloomFilter<String>(1000, 0.01);  // 1000 elements, 1% false positive rate
+  final bloom =
+      BloomFilter<String>(1000, 0.01); // 1000 elements, 1% false positive rate
   print('Created for 1000 elements with 1% false positive rate');
   print('Bit array size: ${bloom.bitCount}');
   print('Hash functions: ${bloom.hashCount}');
@@ -459,12 +463,13 @@ void bloomFilterExamples() {
 
   // False positive demonstration
   print('\n--- False Positive Demonstration ---');
-  print('Important: If contains() returns false, element is DEFINITELY not in set');
+  print(
+      'Important: If contains() returns false, element is DEFINITELY not in set');
   print('           If contains() returns true, element is PROBABLY in set');
 
-  final testBloom = BloomFilter<int>(100, 0.1);  // Higher FP rate for demo
+  final testBloom = BloomFilter<int>(100, 0.1); // Higher FP rate for demo
   for (var i = 0; i < 100; i += 2) {
-    testBloom.add(i);  // Add only even numbers
+    testBloom.add(i); // Add only even numbers
   }
 
   var falsePositives = 0;
@@ -485,11 +490,13 @@ void bloomFilterExamples() {
   print('\n--- Optimal Parameters ---');
   print('For 10,000 elements with 1% FP rate:');
   print('  Optimal bits: ${BloomFilter.optimalSize(10000, 0.01)}');
-  print('  Optimal hashes: ${BloomFilter.optimalHashCount(BloomFilter.optimalSize(10000, 0.01), 10000)}');
+  print(
+      '  Optimal hashes: ${BloomFilter.optimalHashCount(BloomFilter.optimalSize(10000, 0.01), 10000)}');
 
   print('\nFor 10,000 elements with 0.1% FP rate:');
   print('  Optimal bits: ${BloomFilter.optimalSize(10000, 0.001)}');
-  print('  Optimal hashes: ${BloomFilter.optimalHashCount(BloomFilter.optimalSize(10000, 0.001), 10000)}');
+  print(
+      '  Optimal hashes: ${BloomFilter.optimalHashCount(BloomFilter.optimalSize(10000, 0.001), 10000)}');
 
   // Union and Intersection
   print('\n--- Set Operations ---');
@@ -522,14 +529,23 @@ void bloomFilterExamples() {
   }
 
   print('Looking up items:');
-  lookup('user_123');     // In cache
-  lookup('user_999');     // Not in cache
-  lookup('product_789');  // In cache
+  lookup('user_123'); // In cache
+  lookup('user_999'); // Not in cache
+  lookup('product_789'); // In cache
 
   // Use case: Spell checker
   print('\n--- Use Case: Fast Spell Checker ---');
   final dictionary = BloomFilter<String>(100000, 0.001);
-  final words2 = ['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'lazy', 'dog'];
+  final words2 = [
+    'the',
+    'quick',
+    'brown',
+    'fox',
+    'jumps',
+    'over',
+    'lazy',
+    'dog'
+  ];
   dictionary.addAll(words2);
 
   final sentence = ['the', 'quik', 'brown', 'foxes'];

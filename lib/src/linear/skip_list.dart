@@ -30,8 +30,8 @@ class SkipListNode<T extends Comparable<dynamic>> {
 
   /// Creates a sentinel node with no value.
   SkipListNode.sentinel(int level)
-    : value = null,
-      forward = List.filled(level, null);
+      : value = null,
+        forward = List.filled(level, null);
 
   @override
   String toString() => 'SkipListNode($value, level: ${forward.length})';
@@ -65,7 +65,7 @@ class SkipList<T extends Comparable<dynamic>> {
   /// [maxLevel] defines the maximum number of levels (default 16).
   /// [probability] defines the chance of promoting to higher levels (default 0.5).
   SkipList({this.maxLevel = 16, this.probability = 0.5, Random? random})
-    : _random = random ?? Random() {
+      : _random = random ?? Random() {
     _validateParameters();
     _initializeHead();
   }
@@ -301,7 +301,8 @@ class SkipList<T extends Comparable<dynamic>> {
         levelElements.add(current.value.toString());
         current = current.forward[i];
       }
-      buffer.write(levelElements.isEmpty ? '(empty)' : levelElements.join(' -> '));
+      buffer.write(
+          levelElements.isEmpty ? '(empty)' : levelElements.join(' -> '));
       if (i > 0) buffer.write('\n');
     }
 

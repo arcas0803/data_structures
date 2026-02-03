@@ -176,13 +176,13 @@ void directedGraphExamples() {
   // Directed edge check
   print('--- Directed Edges ---');
   print('Has edge A → B: ${digraph.hasEdge('A', 'B')}');
-  print('Has edge B → A: ${digraph.hasEdge('B', 'A')}');  // False!
+  print('Has edge B → A: ${digraph.hasEdge('B', 'A')}'); // False!
 
   // In-degree and out-degree
   print('\n--- In/Out Degree ---');
-  print('In-degree of E: ${digraph.inDegree('E')}');   // B, C
-  print('Out-degree of B: ${digraph.outDegree('B')}');  // D, E
-  print('In-degree of A: ${digraph.inDegree('A')}');   // 0 (source)
+  print('In-degree of E: ${digraph.inDegree('E')}'); // B, C
+  print('Out-degree of B: ${digraph.outDegree('B')}'); // D, E
+  print('In-degree of A: ${digraph.inDegree('A')}'); // 0 (source)
   print('Out-degree of F: ${digraph.outDegree('F')}'); // 0 (sink)
 
   // Topological Sort
@@ -199,7 +199,7 @@ void directedGraphExamples() {
   print('\nAdding edge F → A (creates cycle):');
   digraph.addEdge('F', 'A');
   print('Has cycle now: ${digraph.hasCycle}');
-  print('Topological sort: ${digraph.topologicalSort()}');  // null
+  print('Topological sort: ${digraph.topologicalSort()}'); // null
 
   // Use case: Task scheduler
   print('\n--- Use Case: Build System ---');
@@ -486,7 +486,7 @@ void graphAlgorithmsExamples() {
   cycleGraph.addEdge(2, 3);
   print('Graph 1-2-3 (no cycle): ${cycleGraph.hasCycle}');
 
-  cycleGraph.addEdge(3, 1);  // Creates cycle
+  cycleGraph.addEdge(3, 1); // Creates cycle
   print('After adding 3-1 (cycle): ${cycleGraph.hasCycle}');
 
   // Directed cycle

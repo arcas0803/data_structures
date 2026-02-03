@@ -345,7 +345,8 @@ class FibonacciHeap<T extends Comparable<dynamic>> {
   /// Throws [ArgumentError] if [newValue] is not smaller (for min-heap)
   /// or larger (for max-heap) than the current value.
   void decreaseKey(FibonacciHeapNode<T> node, T newValue) {
-    if (!_isBetter(newValue, node.value) && newValue.compareTo(node.value) != 0) {
+    if (!_isBetter(newValue, node.value) &&
+        newValue.compareTo(node.value) != 0) {
       final operation = type == HeapType.min ? 'decrease' : 'increase';
       throw ArgumentError('New value must $operation the key');
     }
@@ -490,7 +491,8 @@ class FibonacciHeap<T extends Comparable<dynamic>> {
 
   @override
   String toString() {
-    final typeName = type == HeapType.min ? 'FibonacciMinHeap' : 'FibonacciMaxHeap';
+    final typeName =
+        type == HeapType.min ? 'FibonacciMinHeap' : 'FibonacciMaxHeap';
     if (isEmpty) return '$typeName: []';
     return '$typeName: $values (extreme: ${_extremeNode?.value})';
   }
@@ -522,7 +524,8 @@ class FibonacciHeap<T extends Comparable<dynamic>> {
     String suffix,
   ) {
     final marker = node.marked ? '*' : '';
-    buffer.writeln('$prefix${isLast ? '└── ' : '├── '}${node.value}$marker$suffix');
+    buffer.writeln(
+        '$prefix${isLast ? '└── ' : '├── '}${node.value}$marker$suffix');
 
     if (node.child != null) {
       final children = <FibonacciHeapNode<T>>[];

@@ -32,7 +32,8 @@ void main() {
       // Insert in ascending order (would be unbalanced in regular BST)
       for (var i = 1; i <= 10; i++) {
         tree.insert(i);
-        expect(tree.isValid, isTrue, reason: 'Tree should be valid after inserting $i');
+        expect(tree.isValid, isTrue,
+            reason: 'Tree should be valid after inserting $i');
       }
       expect(tree.height, lessThanOrEqualTo(4)); // log2(10) ~ 3.32
     });

@@ -410,7 +410,8 @@ void main() {
         stringList.insert('apple');
         stringList.insert('cherry');
         stringList.insert('date');
-        expect(stringList.toList(), equals(['apple', 'banana', 'cherry', 'date']));
+        expect(
+            stringList.toList(), equals(['apple', 'banana', 'cherry', 'date']));
       });
     });
 
