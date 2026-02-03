@@ -3,7 +3,7 @@ description: >-
   A comprehensive data structures library for Dart. Includes LinkedList, Stack, 
   Queue, HashTable, BST, AVL Tree, Heap, Trie, B-Tree, SegmentTree, Graph, 
   FlowNetwork, and more with full documentation in English and Spanish.
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/arcas0803/data_structures
 repository: https://github.com/arcas0803/data_structures
 issue_tracker: https://github.com/arcas0803/data_structures/issues

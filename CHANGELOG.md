@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2026-02-03
+
+### Fixed
+- Fixed all linter warnings and infos in example files
+- Added curly braces to single-statement loops per Dart style guide
+- Removed unused variables and unnecessary null assertions
+- Code now passes `dart analyze --fatal-infos`
+
 ## [2.0.0] - 2026-02-03
 
 ### Added
